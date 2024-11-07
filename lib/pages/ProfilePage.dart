@@ -9,7 +9,9 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: Row(
           children: [
             Text(
@@ -49,7 +51,74 @@ class ProfilePage extends StatelessWidget {
                 ),
               )
             ]),
-          )
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Text(
+              "Denji",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: RichText(
+              text: const TextSpan(
+                text: "lorem ipsum sit dolorit amet",
+                style: TextStyle(
+                  color: Colors.black,
+                ),
+                children: [
+                  TextSpan(
+                    text: " #hastag",
+                    style: TextStyle(
+                      color: Colors.blue,
+                    ),
+                    children: [],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Text(
+              "Link goes here",
+              style: TextStyle(color: Colors.blue),
+            ),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: OutlinedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5),
+                ),
+              ),
+              onPressed: () {},
+              child: Text(
+                "Edit Profile",
+                style: TextStyle(
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
