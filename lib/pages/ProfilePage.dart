@@ -119,6 +119,98 @@ class ProfilePage extends StatelessWidget {
               ),
             ),
           ),
+          SizedBox(
+            height: 15,
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 15),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  HighlightStoryWidget(
+                    title: "Pochita!",
+                    url:
+                        "https://i.pinimg.com/736x/c6/9c/cb/c69ccb248f42ceea591d79f59481861d.jpg",
+                  ),
+                  HighlightStoryWidget(
+                      title: "eat eat eat",
+                      url:
+                          "https://i.pinimg.com/736x/df/4a/a0/df4aa0a83abdc4d7a7e5355c1b1f1f7d.jpg"),
+                  HighlightStoryWidget(
+                    title: "activity",
+                    url:
+                        "https://i.pinimg.com/736x/1a/c0/01/1ac0012a7a412f491c0e9e2f87452743.jpg",
+                  ),
+                  HighlightStoryWidget(
+                    title: "aquarium date",
+                    url:
+                        "https://i.pinimg.com/736x/0b/39/ad/0b39adfc4223ae1e7472a708d47fbdb5.jpg",
+                  ),
+                  HighlightStoryWidget(
+                    title: "me",
+                    url:
+                        "https://i.pinimg.com/736x/bc/f4/f1/bcf4f15ee5653d41ab233a6ff8251369.jpg",
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class HighlightStoryWidget extends StatelessWidget {
+  const HighlightStoryWidget({
+    super.key,
+    required this.title,
+    required this.url,
+  });
+
+  final String title;
+  final String url;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 5.0),
+      child: Column(
+        children: [
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              Container(
+                height: 80,
+                width: 80,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  color: Colors.grey[300],
+                ),
+              ),
+              Container(
+                height: 77,
+                width: 77,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  color: Colors.grey[300],
+                  border: Border.all(
+                    color: Colors.white,
+                    width: 5,
+                  ),
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage("$url"),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Text("$title"),
         ],
       ),
     );
