@@ -6,7 +6,13 @@ import '../widgets/ProfilePictureWidget.dart';
 import '../widgets/TabItemWidget.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+  List urlImage = [
+    "https://i.pinimg.com/736x/8f/8f/d7/8f8fd745b9e5e87a8139bc55a8028f81.jpg",
+    "https://i.pinimg.com/736x/0f/01/26/0f0126216dae917686d75304e7fc122f.jpg",
+    "https://i.pinimg.com/736x/88/bf/c5/88bfc5b6a625d138d5d716cfdb3e6783.jpg",
+    "https://i.pinimg.com/736x/c3/34/80/c33480781ac4acc527a0e71985830653.jpg",
+    "https://i.pinimg.com/736x/23/c6/1c/23c61cb0475c1cdabd1056b635242597.jpg",
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -167,6 +173,48 @@ class ProfilePage extends StatelessWidget {
               TabItemWidget(Icons.grid_on_outlined, true),
               TabItemWidget(Icons.person_pin_outlined, false),
             ],
+          ),
+          GridView.builder(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemCount: 20,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3, mainAxisSpacing: 5, crossAxisSpacing: 5),
+            itemBuilder: (context, index) => Image.network(
+              urlImage.length > index && urlImage[index].isNotEmpty
+                  ? urlImage[index]
+                  : "https://i.pinimg.com/736x/c6/9c/cb/c69ccb248f42ceea591d79f59481861d.jpg",
+              fit: BoxFit.cover,
+            ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 4,
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.grey,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: "Search",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.movie_filter_rounded),
+            label: "Movie",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_bag_rounded),
+            label: "Shop",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "Profile",
           ),
         ],
       ),
